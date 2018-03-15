@@ -1,9 +1,6 @@
 package com.demo.fashion.media;
 
-import com.demo.fashion.media.data.Clothing;
-import com.demo.fashion.media.data.ClothingCollection;
-import com.demo.fashion.media.data.ClothingCollectionRepository;
-import com.demo.fashion.media.data.ClothingRepository;
+import com.demo.fashion.media.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +17,7 @@ public class Application {
     private ClothingRepository clothingRepository;
 
     @Autowired
-    private ClothingCollectionRepository clothingCollectionRepository;
+    private OutfitRepository clothingCollectionRepository;
 
 
     public static void main(String[] args) {
@@ -42,10 +39,17 @@ public class Application {
             clothing.setName("dress " + (i + 1));
             clothingRepository.save(clothing);
         }
-        ClothingCollection collection = new ClothingCollection();
+
+        Outfit collection = new Outfit();
         collection.setClothingList(new ArrayList<>());
+        Owner owner = new Owner();
+        collection.setOwner(owner);
         for (Clothing clothing : clothingRepository.findAll()) {
-            collection.getClothingList().add(clothing);
+            OutfitEntry entry = new OutfitEntry();
+            entry.setClothing(clothing);
+            entry.setClothingCollection(collection);
+            entry.setPosition("12,20, 112, 70"); // a square coordinates x1, y1, x2, y2
+            collection.getClothingList().add(entry);
         }
 
         clothingCollectionRepository.save(collection);
