@@ -1,5 +1,7 @@
 package com.demo.fashion.media.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +27,7 @@ public class OutfitEntry {
         this.id = id;
     }
 
+    @JsonIgnore
     public Outfit getClothingCollection() {
         return clothingCollection;
     }
