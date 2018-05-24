@@ -1,8 +1,9 @@
-package com.demo.fashion.media;
+package com.demo.fashion.look;
 
 
-import com.demo.fashion.media.data.Outfit;
-import com.demo.fashion.media.data.OutfitRepository;
+import com.demo.fashion.OperationResult;
+import com.demo.fashion.look.Outfit;
+import com.demo.fashion.look.OutfitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,22 +27,22 @@ public class OutfitController {
     }
 
     @RequestMapping(value = "outfit", method = RequestMethod.GET)
-    public List<Outfit> getOutfit() {
+    public OperationResult<List<Outfit>> getOutfit() {
         List<Outfit> outfits = new ArrayList<>();
         outfitRepository.findAll().forEach(c -> outfits.add(c));
-        return outfits;
+        return OperationResult.succes(outfits);
     }
 
     @RequestMapping(value = "outfit", method = RequestMethod.POST)
-    public Outfit saveOutfit(Outfit outfit) {
-        return outfitRepository.save(outfit);
+    public  OperationResult<Outfit> saveOutfit(Outfit outfit) {
+        return OperationResult.succes(outfitRepository.save(outfit));
     }
 
     @RequestMapping(value = "outfit/{id}", method = RequestMethod.DELETE)
-    public String removeOutfit(@PathVariable(name="id") Long id) {
+    public OperationResult<String> removeOutfit(@PathVariable(name="id") Long id) {
         Outfit outfit = outfitRepository.findById(id).get();
         outfitRepository.delete(outfit);
-        return "SUCCESS";//here all needs serious revamp
+        return OperationResult.succes("SUCCESS");//here all needs serious revamp
     }
     
     

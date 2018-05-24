@@ -26,6 +26,7 @@
 
     <modules>
         <module>media</module>
+        <module>users</module>
     </modules>
 
     <dependencies>

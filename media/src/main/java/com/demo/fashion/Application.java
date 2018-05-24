@@ -1,6 +1,10 @@
-package com.demo.fashion.media;
+package com.demo.fashion;
 
-import com.demo.fashion.media.data.*;
+import com.demo.fashion.look.*;
+import com.demo.fashion.users.Owner;
+import com.demo.fashion.users.auth.Role;
+import com.demo.fashion.users.auth.RoleName;
+import com.demo.fashion.users.auth.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +23,8 @@ public class Application {
     @Autowired
     private OutfitRepository clothingCollectionRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -33,6 +39,9 @@ public class Application {
 
 
     private void startup() {
+        roleRepository.save(new Role(RoleName.ROLE_ADMIN));
+        roleRepository.save(new Role(RoleName.ROLE_USER));
+
         for (int i = 0; i < 10; i++) {
             Clothing clothing = new Clothing();
             clothing.setImgUrl("http://www.img.com/" + (1 + i));

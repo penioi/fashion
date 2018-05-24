@@ -1,4 +1,4 @@
-package com.demo.fashion.media.data;
+package com.demo.fashion.look;
 
 
 import javax.persistence.Entity;

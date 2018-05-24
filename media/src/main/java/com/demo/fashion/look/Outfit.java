@@ -1,4 +1,6 @@
-package com.demo.fashion.media.data;
+package com.demo.fashion.look;
+
+import com.demo.fashion.users.Owner;
 
 import javax.persistence.*;
 import java.util.List;
