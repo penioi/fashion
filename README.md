@@ -1,8 +1,3 @@
-# fashion
-to run the project
+### Fashion
 
-cd media
-mvn clean package
-mvn spring-boot:run
-
-By default server is started on port 5000.
+App for putting together looks from the latest fasion collections.
