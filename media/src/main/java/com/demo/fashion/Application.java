@@ -2,8 +2,8 @@ package com.demo.fashion;
 
 import com.demo.fashion.look.*;
 import com.demo.fashion.users.Owner;
-import com.demo.fashion.users.auth.Role;
-import com.demo.fashion.users.auth.RoleName;
+import com.demo.fashion.users.auth.UserRole;
+import com.demo.fashion.users.auth.UserRoleName;
 import com.demo.fashion.users.auth.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -39,8 +39,8 @@ public class Application {
 
 
     private void startup() {
-        roleRepository.save(new Role(RoleName.ROLE_ADMIN));
-        roleRepository.save(new Role(RoleName.ROLE_USER));
+        roleRepository.save(new UserRole(UserRoleName.ROLE_ADMIN));
+        roleRepository.save(new UserRole(UserRoleName.ROLE_USER));
 
         for (int i = 0; i < 10; i++) {
             Clothing clothing = new Clothing();

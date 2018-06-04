@@ -1,6 +1,6 @@
 package com.demo.fashion.users;
 
-import com.demo.fashion.users.auth.Role;
+import com.demo.fashion.users.auth.UserRole;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,7 +20,7 @@ public class User {
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private Set<UserRole> userRoles = new HashSet<>();
 
 
     public User() {
@@ -55,11 +55,11 @@ public class User {
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }

@@ -5,7 +5,7 @@ import com.demo.fashion.security.JwtTokenProvider;
 import com.demo.fashion.users.User;
 import com.demo.fashion.users.UserRepository;
 import com.demo.fashion.users.auth.*;
-import com.demo.fashion.users.signup.SignUpRequest;
+import com.demo.fashion.users.signup.RegisterUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,7 +45,7 @@ public class LoginController {
     @Autowired
     JwtTokenProvider tokenProvider;
 
-    @PostMapping("/signin")
+    @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -61,17 +61,17 @@ public class LoginController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+    @PostMapping("/registerUser")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterUserRequest signUpRequest) {
         if(userLoginRepository.existsByUsername(signUpRequest.getUsername())) {
-            return  OperationResult.error("", "Username Taken!");
+            return  OperationResult.error("", "Username already taken!");
         }
 
         // Creating user's account
         User user = new User(signUpRequest.getName(), signUpRequest.getEmail());
-        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
-                .orElseThrow(() -> new RuntimeException("User Role not set."));
-        user.setRoles(Collections.singleton(userRole));
+        UserRole userUserRole = roleRepository.findByName(UserRoleName.ROLE_USER)
+                .orElseThrow(() -> new RuntimeException("User UserRole not set."));
+        user.setUserRoles(Collections.singleton(userUserRole));
         userRepository.save(user);
 
         UserLogin userLogin = new UserLogin();
