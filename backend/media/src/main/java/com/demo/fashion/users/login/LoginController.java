@@ -5,7 +5,7 @@ import com.demo.fashion.security.JwtTokenProvider;
 import com.demo.fashion.users.User;
 import com.demo.fashion.users.UserRepository;
 import com.demo.fashion.users.auth.*;
-import com.demo.fashion.users.signup.RegisterUserRequest;
+import com.demo.fashion.users.signup.SignUpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -62,9 +62,9 @@ public class LoginController {
     }
 
     @PostMapping("/registerUser")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterUserRequest signUpRequest) {
-        if(userLoginRepository.existsByUsername(signUpRequest.getUsername())) {
-            return  OperationResult.error("", "Username already taken!");
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+        if (userLoginRepository.existsByUsername(signUpRequest.getUsername())) {
+            return OperationResult.error("", "Username already taken!");
         }
 
         // Creating user's account
@@ -84,6 +84,6 @@ public class LoginController {
                 .fromCurrentContextPath().path("/users/{username}")
                 .buildAndExpand(userLogin.getUsername()).toUri();
 
-        return  OperationResult.succes("User registered successfully").created(location).build();
+        return OperationResult.succes("User registered successfully").created(location).build();
     }
 }

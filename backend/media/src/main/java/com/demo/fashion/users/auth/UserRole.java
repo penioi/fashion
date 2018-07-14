@@ -4,9 +4,6 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 
-/**
- * Created by rajeevkumarsingh on 01/08/17.
- */
 @Entity
 @Table(name = "roles")
 public class UserRole {
@@ -17,13 +14,12 @@ public class UserRole {
     @Enumerated(EnumType.STRING)
     @NaturalId
     @Column(length = 60)
-    private RoleName name;
+    private UserRoleName name;
 
     public UserRole() {
-
     }
 
-    public UserRole(RoleName name) {
+    public UserRole(UserRoleName name) {
         this.name = name;
     }
 
@@ -35,11 +31,11 @@ public class UserRole {
         this.id = id;
     }
 
-    public RoleName getName() {
+    public UserRoleName getName() {
         return name;
     }
 
-    public void setName(RoleName name) {
+    public void setName(UserRoleName name) {
         this.name = name;
     }
 
