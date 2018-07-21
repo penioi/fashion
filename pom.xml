@@ -4,41 +4,34 @@
 
 
     <parent>
-         <groupId>com.demo</groupId>
-		<artifactId>fashion</artifactId>
-        <relativePath>../</relativePath> 
-		 <version>1.0.0-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
 
     <groupId>com.demo</groupId>
-    <artifactId>fashion-backend</artifactId> 
+    <artifactId>fashion</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Fashion Backend Parent</name>
+    <name>Fashion Parent</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+	<scm>
+		<url>https://github.com/penioi/fashion/</url>
+		<connection>https://github.com/penioi/fashion.git</connection>
+		<developerConnection>https://github.com/penioi/fashion.git</developerConnection>
+	</scm>
 
     <modules>
-        <module>media</module> 
+        <module>backend</module> 
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -48,7 +41,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>

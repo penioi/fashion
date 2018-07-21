@@ -48,6 +48,11 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
+        String jwt = getJwtToken(loginRequest);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+    }
+
+    private String getJwtToken(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsernameOrEmail(),
@@ -57,8 +62,7 @@ public class LoginController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String jwt = tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        return tokenProvider.generateToken(authentication);
     }
 
     @PostMapping("/registerUser")
@@ -86,4 +90,5 @@ public class LoginController {
 
         return OperationResult.succes("User registered successfully").created(location).build();
     }
+
 }
