@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.demo</groupId>
-        <artifactId>fashion</artifactId>
+        <artifactId>fashion-backend</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../</relativePath>
+        <relativePath>../../</relativePath>
     </parent>
 
     <groupId>com.demo.fashion</groupId>
     <artifactId>media</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+   
 
 
     <dependencies>
