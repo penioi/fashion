@@ -25,8 +25,8 @@
     </properties>
 	<scm>
 		<url>https://github.com/penioi/fashion/</url>
-		<connection>https://github.com/penioi/fashion.git</connection>
-		<developerConnection>https://github.com/penioi/fashion.git</developerConnection>
+		<connection>scm:git:https://github.com/penioi/fashion.git</connection>
+		<developerConnection>scm:git:https://github.com/penioi/fashion.git</developerConnection>
 	</scm>
 
     <modules>
