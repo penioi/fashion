@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
 
@@ -7,13 +6,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
 
     <groupId>com.demo</groupId>
     <artifactId>fashion</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Fashion Parent</name>
@@ -27,7 +26,8 @@
 		<url>https://github.com/penioi/fashion/</url>
 		<connection>scm:git:https://github.com/penioi/fashion.git</connection>
 		<developerConnection>scm:git:https://github.com/penioi/fashion.git</developerConnection>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
     <modules>
         <module>backend</module> 
@@ -41,4 +41,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>absolute directory</id>
+            <url>file://../repo</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>
