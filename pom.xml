@@ -12,7 +12,7 @@
 
     <groupId>com.demo</groupId>
     <artifactId>fashion</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Fashion Parent</name>
@@ -41,13 +41,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>absolute directory</id>
-            <url>file:///c/repo</url>
-        </repository>
-    </distributionManagement>
-
 
 </project>
