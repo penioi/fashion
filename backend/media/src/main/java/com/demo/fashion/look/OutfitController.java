@@ -2,8 +2,6 @@ package com.demo.fashion.look;
 
 
 import com.demo.fashion.OperationResult;
-import com.demo.fashion.look.Outfit;
-import com.demo.fashion.look.OutfitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
